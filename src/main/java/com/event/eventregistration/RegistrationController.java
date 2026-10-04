@@ -20,11 +20,11 @@ public class RegistrationController {
     public ResponseEntity<?> register(@RequestBody Registration registration) {
 
         if (repository.existsByRollNo(registration.getRollNo())) {
+
             return ResponseEntity
                     .status(409)
-                    .body(Map.of("message","You are already a Member,Thank you"));
+                    .body("You are already a Member, Thank you");
         }
-
         Registration saved = repository.save(registration);
 
         return ResponseEntity
