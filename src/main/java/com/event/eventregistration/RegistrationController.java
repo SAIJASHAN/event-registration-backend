@@ -1,7 +1,7 @@
 package com.event.eventregistration;
 
 import java.util.List;
-
+import java.util.Map;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 @RestController
@@ -22,7 +22,7 @@ public class RegistrationController {
         if (repository.existsByRollNo(registration.getRollNo())) {
             return ResponseEntity
                     .status(409)
-                    .body("You are already a Member,Thank you");
+                    .body(Map.of("message","You are already a Member,Thank you"));
         }
 
         Registration saved = repository.save(registration);
