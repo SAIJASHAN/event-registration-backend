@@ -22,7 +22,7 @@ public class RegistrationController {
         if (repository.existsByRollNo(registration.getRollNo())) {
             return ResponseEntity
                     .status(409)
-                    .body("Roll number already registered");
+                    .body("You are already a Member,Thank you");
         }
 
         Registration saved = repository.save(registration);
